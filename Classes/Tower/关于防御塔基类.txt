@@ -1,0 +1,30 @@
+BaseTower.h：
+1.TowerType枚举：定义了所有防御塔的唯一标识符
+
+2.BaseTower继承自Cocos2d-x的Sprite类
+
+3.使用CC-SYNTHESIZE定义了防御塔的一系列标准属性及其getter/setter方法：
+towerType:塔的类型
+myTerrain:指向塔所在的建造点（CustomTerrain）,用于交互
+towerName：塔名称
+level：当前塔的等级
+scope:攻击范围（半径）
+rate：攻击速率
+force：每次攻击的伤害
+updateMoney:升级所需金钱
+buildMoney:建造该塔所需基础金钱
+
+4.行为接口：
+updateTower()：每一帧进行检查的更新函数，用于执行攻击逻辑
+showUpdateMenu()：显示该塔的升级菜单
+setRallyPoint(Point point)：设置士兵集结点
+
+5.功能接口:
+sellTower():出售防御塔
+removeTower():从游戏中移除防御塔
+
+6.protected成员:
+checkNearestMonster():索敌算法
+onTouchBegan, onTouchEnded:触摸事件处理函数，用于相应玩家点击操作
+nearestMonster:指向BaseMonster的指针，存储当前锁定的攻击目标
+setListener():为防御塔绑定单点触摸监听器，确保单击塔时触摸事件不会向下传递
