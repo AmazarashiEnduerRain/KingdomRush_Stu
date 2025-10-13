@@ -1,5 +1,6 @@
 BaseTower.h：
 1.TowerType枚举：定义了所有防御塔的唯一标识符
+开头的两个类声明为前向声明
 
 2.BaseTower继承自Cocos2d-x的Sprite类
 
@@ -19,12 +20,15 @@ updateTower()：每一帧进行检查的更新函数，用于执行攻击逻辑
 showUpdateMenu()：显示该塔的升级菜单
 setRallyPoint(Point point)：设置士兵集结点
 
-5.功能接口:
+5.升级分支接口
+update1()和update2()留待子类进行具体的升级逻辑实现
+
+6.功能接口:
 sellTower():出售防御塔
 removeTower():从游戏中移除防御塔
 
-6.protected成员:
+7.protected成员:
 checkNearestMonster():索敌算法
-onTouchBegan, onTouchEnded:触摸事件处理函数，用于相应玩家点击操作
+onTouchBegan, onTouchEnded:触摸事件处理函数，用于响应玩家点击操作
 nearestMonster:指向BaseMonster的指针，存储当前锁定的攻击目标
 setListener():为防御塔绑定单点触摸监听器，确保单击塔时触摸事件不会向下传递
