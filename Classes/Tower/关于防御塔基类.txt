@@ -20,7 +20,7 @@ updateTower()：每一帧进行检查的更新函数，用于执行攻击逻辑
 showUpdateMenu()：显示该塔的升级菜单
 setRallyPoint(Point point)：设置士兵集结点
 
-5.升级分支接口
+5.升级分支接口:
 update1()和update2()留待子类进行具体的升级逻辑实现
 
 6.功能接口:
