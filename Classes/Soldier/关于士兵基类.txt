@@ -1,0 +1,22 @@
+1.士兵核心属性
+maxHp:最大生命；currHP:当前生命
+force:攻击力;armor:护甲/物理防御
+state：士兵状态属性；location:存储玩家指定的集结点（Rally Point）
+hpBar:只读的ProgressTimer指针，动态展示血量;baseSprite:指向士兵的动画精灵
+
+2.核心行为接口
+runToLocation():接收一个坐标，命令士兵移动到集结点，抵达后自动进入警戒索敌模式
+attackMonster():虚函数，是攻击逻辑的核心接口。基类中为空实现，所有具体的士兵子类必须重写此方法以实现各自独特的攻击			动画、伤害计算和死亡逻辑
+upDataSodier():虚函数，用于在士兵升级时更新其外观、属性和技能
+
+3.基础逻辑
+警戒状态：runToLocation执行完毕后，士兵进入Wait状态，每秒执行一次索敌检测（lookingForMonsters）
+目标选择：checkNearestMonster扫描50单位范围内是否有可攻击且空闲的怪物
+自动交战：发现敌人后，士兵停止自动警戒，通过runToMonster跑向目标，在抵达后周期性调用attackMonster进行攻击
+
+4.视觉与动画管理
+动态血条：createAndSetHpBar实现了血条的自动创建和绑定。血条始终跟随在士兵头顶
+自动朝向：移动或攻击时，checkDirectionForMonster等函数会自动翻转baseSprite，确保士兵始终面向正确方向
+动画状态管理:提供stopSoldierAnimation方法，并通过士兵状态与子类update函数联动，为不同状态下的动画播放提供标准流		   程
+
+后续：实现具体士兵子类，如BarrackSoldier和ReinforceSodlier等，并重写attackMonster和update等方法
