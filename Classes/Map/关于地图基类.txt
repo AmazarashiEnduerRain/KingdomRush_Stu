@@ -1,0 +1,28 @@
+1.核心属性：
+关卡标识：level：当前关卡编号;difficulty：当前关卡难度
+游戏进程：wave：当前波数; maxWave：总波数; time：波内计时器; isGameStarted：标记游戏是否正式开始；isFinalWaveSpawned：标记最后一波是否生成完毕
+玩家资源：startGold：初始金钱; maxLife：初始生命（实时金钱/生命由GameManager管理，BaseMap从中读取并更新UI）
+关卡数据：
+	waveVector：存储从配置文件加载的详细出怪计划（波次->时间点->怪物组）
+	pathVector：存储从配置文件加载的所有怪物行走路径（路径->线路->点）
+核心组件：
+	mapSprite：指向关卡背景图的精灵
+	playerState：指向玩家状态UI层(PlayerStateMenu)的指针
+	mTouchLayer：指向独立触摸层(TouchLayer)的指针
+	waveFlags：存储“下一波”提示旗帜的容器
+2.已实现的核心功能：
+提供了通用的关卡管理逻辑：
+	初始化流程(initMap)：定义关卡启动的标准流程，包括加载数据、设置初始状态、初始化触摸层和调整视角
+	数据驱动加载(loadPathFromPlist, loadAndSetLevelData)：实现从.plist配置文件动态加载关卡布局（怪物路径）和关卡逻辑（出怪顺序、初始资源等）的功能
+	出怪逻辑(addWaves, addMonsters)：实现了基于waveVector数据的自动按波次、按时间点生成怪物的核心机制，并处理波数之间的过渡
+	胜负判定(update, handleVictory, handleFailure)在主循环update中持续检测胜利和失败条件，并触发相应的处理函数
+	UI绑定与更新(bindPlayerStateMenu, updateGoldAndLife)提供了与PlayerStateMenu交互的接口，用于在游戏过程中实时更新金钱和生命显示
+	“下一波”提示(addWaveProgressBars, showWaveProgressBars)：管理WaveFlag精灵的显示和逻辑，允许玩家提前触发下一波
+	触摸层管理(initTouchLayer)：创建并管理TouchLayer，用于处理游戏内交互事件
+3.需要子类实现的功能：
+	initWithDifficulty(int difficulty)：（必须）子类需要重写此方法来调用initMap()并执行特定于该关卡的初始化
+	addTerrains()：（必须）子类需要重写此方法以在地图上指定的位置创建并添加CustomTerrain对象，定义防御塔的可建造点
+	addOrnament()：（可选）子类可以重写此方法，添加该关卡特有的装饰性精灵或背景元素
+	waveEvent()：(可选)子类可以重写此方法，为特定波数wave插入特殊逻辑或动画（如boss出场前的运镜和开门动画）
+	onExit()：（必须）子类需要重写此方法，以在关卡退出时移除特定的精灵帧缓存
+	
