@@ -1,0 +1,18 @@
+1.核心属性
+	视觉组件：towerBase,指向塔身主体部分的精灵；shooter-1/2,指向两个射手精灵的指针
+	状态控制：shootTag,一个整数标记，用于控制由哪个射手执行下一次射击
+2.核心功能
+	外观初始化:initTower()，根据传入的等级，构建不同等级的弓箭塔视觉外观
+	专属地形:addTerrain()，添加弓箭塔特有的地基精灵外观
+	核心射击逻辑：
+		索敌：继承并使用checkNearestMonster
+		射手动画与朝向：根据目标方向自动翻转当前射手精灵并播放对应的向上或向下射击动画
+		交替射击：通过shootTag在shooter_1和shooter_2之间切换
+		弧线弹道：使用贝塞尔曲线为发射的箭矢创建抛物线飞行路径
+		音效：射击时播放相应音效
+		子弹创建调用：设计流程中调用ArrowTowerBullet()来获取由子类创建的具体箭矢对象
+3.需要子类实现的功能：
+    ArrowTowerBullet():子类必须重写该纯虚函数以返回一个具体的Bullet子类实例以定义该塔发射的箭矢类型及其基础属性
+    调用初始化：子类的init方法中需要调用initTower(level)来构建塔的外观并调用addTerrain()添加地基
+    设置射击频率：子类需要在init方法中使用schedule(schedule_selector(BaseArrowTower::shoot), interval)
+                来设定调用基类 shoot 方法的频率，从而控制塔的攻击速度。
