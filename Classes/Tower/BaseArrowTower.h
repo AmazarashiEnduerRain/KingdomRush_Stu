@@ -14,7 +14,7 @@
 
 USING_NS_CC;
 
-class BaseArrowTower {
+class BaseArrowTower : public BaseArrowTower{
 public:
 //从父类继承
 protected:

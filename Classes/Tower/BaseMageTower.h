@@ -10,7 +10,7 @@
 #include "Bullet/Bullet.h"
 USING_NS_CC;
 
-class BaseMageTower {
+class BaseMageTower : public BaseTower{
 public:
 
 protected:
