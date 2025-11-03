@@ -25,7 +25,7 @@ typedef enum {
     FALLEN,
     IMMORTAL,
     MUNRA,
-    RADIER,
+    RAIDER,
     SCORPION,
     TREMOR,
     WASPHORNET,
@@ -82,9 +82,6 @@ public:
     Point getNextPoint();
     virtual void frozen();
     virtual void refrozen(float dt);
-
-private:
-
 protected:
     void setMonsterZorder(int yOrder);
     int pointCounter;

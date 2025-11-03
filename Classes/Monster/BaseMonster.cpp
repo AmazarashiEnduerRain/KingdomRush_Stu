@@ -17,8 +17,7 @@ runSpeed(0),maxHp(0),currHp(0),armor(0),hpPercentage(100)
 
 BaseMonster::~BaseMonster(){}
 
-bool BaseMonster::init()
-{
+bool BaseMonster::init(){
     if (!Sprite::init()) return false;
     return true;
 }
@@ -116,8 +115,7 @@ Point BaseMonster::nextPoint(){
     return currPoint();
 }
 
-void BaseMonster::setMonsterZorder(int yOrder)
-{
+void BaseMonster::setMonsterZorder(int yOrder){
     int hunder = (yOrder/100);
     switch (hunder)
     {
@@ -136,8 +134,7 @@ void BaseMonster::setMonsterZorder(int yOrder)
     }
 }
 
-void BaseMonster::runNextPoint()
-{
+void BaseMonster::runNextPoint(){
     auto tempCurrPoint = currPoint();
 
     baseSprite->setPosition(tempCurrPoint);
@@ -164,8 +161,7 @@ void BaseMonster::runNextPoint()
     }
 }
 
-void BaseMonster::update(float dt)
-{
+void BaseMonster::update(float dt){
     //若状态更新
     if(lastState != getState()){
         //根据状态判断
@@ -242,8 +238,7 @@ void BaseMonster::restartWalking(){
     , CallFuncN::create(CC_CALLBACK_0(BaseMonster::runNextPoint, this)), NULL));
 }
 
-void BaseMonster::slowRunSpeed(float dt,float dis)
-{
+void BaseMonster::slowRunSpeed(float dt,float dis){
     if(!isSlowed){
         isSlowed = true;
         auto temp = this->getRunSpeed();
@@ -255,8 +250,7 @@ void BaseMonster::slowRunSpeed(float dt,float dis)
     }
 }
 
-void BaseMonster::frozen()
-{
+void BaseMonster::frozen(){
     if(getState()!=stateFrozen){
         tempState = lastState;
         setState(stateFrozen);
@@ -278,8 +272,7 @@ void BaseMonster::frozen()
     }
 }
 
-void BaseMonster::refrozen(float dt)
-{
+void BaseMonster::refrozen(float dt){
     ice->runAction(Sequence::create(Animate::create(AnimationCache::getInstance()->getAnimation("refreeze_creep"))
     ,CallFuncN::create(CC_CALLBACK_0(Sprite::removeFromParent, ice)),
     CallFuncN::create(CC_CALLBACK_0(BaseMonster::restartWalking, this)), NULL));
