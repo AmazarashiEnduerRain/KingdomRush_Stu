@@ -10,7 +10,7 @@
 #include "Bullet/Bullet.h" //子弹类头文件
 
 #define LEFT_ARCHER_SHOT 1
-#define RIGHT_ARCHER_SHOT 1 //标记射手
+#define RIGHT_ARCHER_SHOT 2 //标记射手
 
 USING_NS_CC;
 
