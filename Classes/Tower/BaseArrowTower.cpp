@@ -108,10 +108,8 @@ void BaseArrowTower::shoot(float dt){
 		}
 		//弧线
 		ccBezierConfig bezier;
-		if(shootTag == LEFT_ARCHER_SHOT)
-			SoundManager::playArrowShoot1();
-		else
-			SoundManager::playArrowShoot2();
+		if(shootTag == LEFT_ARCHER_SHOT) SoundManager::playArrowShoot2();
+		else  SoundManager::playArrowShoot1();
 		//两个控制点
 		bezier.controlPoint_1 = Point(currBullet->getPosition().x,currBullet->getPosition().y + 200);
 		bezier.controlPoint_2 = Point(shootVector.x,shootVector.y + 200);;
