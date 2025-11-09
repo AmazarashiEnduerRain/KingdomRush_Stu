@@ -26,7 +26,7 @@ void Arrow::removeBullet() {
     this->sprite->getContentSize().width,
     this->sprite->getContentSize().height ); //计算碰撞矩形
 
-    auto monsterVector = instance->monsterVector;
+    auto& monsterVector = instance->monsterVector;
     for (int j = 0; j < monsterVector.size(); j++){
         auto monster = monsterVector.at(j);
         auto monsterRect = monster->baseSprite->getBoundingBox();//获取怪物的碰撞框

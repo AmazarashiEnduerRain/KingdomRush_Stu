@@ -24,7 +24,7 @@ void MageBolt::removeBullet(){
     this->sprite->getContentSize().width,
     this->sprite->getContentSize().height);
 
-    auto monsterVector = instance->monsterVector;
+    auto& monsterVector = instance->monsterVector;
 
     for (int j = 0; j < monsterVector.size(); j++){
         auto monster = monsterVector.at(j);

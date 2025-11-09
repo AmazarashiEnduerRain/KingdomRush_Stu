@@ -52,7 +52,7 @@ void Bomb::removeBullet(){
 
     auto bombPostion = this->getPosition() + this->getParent()->getPosition();
 
-    auto monsterVector = instance->monsterVector;
+    auto& monsterVector = instance->monsterVector;
 
     for (int j = 0; j < monsterVector.size(); j++)
     {
