@@ -34,7 +34,7 @@ void TotemAxe::removeBullet(){
 
         if (monster != NULL && monsterRect.intersectsRect(bulletRect) && monster->getAttackByTower()){
             auto currHp = monster->getCurrHp();
-            currHp =  currHp - this->getMaxForce();
+            currHp =  currHp - this->getMaxForce() + monster->getArmor();
 
             if(currHp <= 0) currHp = 0;
 
