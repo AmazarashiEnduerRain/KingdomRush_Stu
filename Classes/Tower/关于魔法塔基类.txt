@@ -1,0 +1,17 @@
+1.核心属性
+	视觉组件：towerBase指向塔身主体部分的精灵; shooter指向代表施法者的精灵
+	子弹引用：currBullet指向Bullet对象的指针，用于子类特殊逻辑
+2.已实现的核心功能
+	外观初始化：initTower：根据传入的等级，动态加载并组合塔身和施法者精灵，构建不同等级和类型的魔法塔的视觉外观
+	专属地形：addTerrain：添加魔法塔特有的地基精灵外观
+	核心射击逻辑：shoot:
+		索敌：继承并使用checkNearestMonster方法
+		施法动画：根据目标方向自动播放施法者向上或向下施法的动画并播放塔身闪光动画
+		直线弹道：使用MoveTo动作，使发射的魔法但沿直线快速飞向目标
+		角度计算：atan2精确计算目标法向，并在发射时设置魔法弹精灵的旋转角度（setRotation）
+		音效；子弹创建调用
+3.需要子类实现的功能
+	MageTowerBullet：子类必须重写该虚函数以返回具体的Bullet子类
+	调用初始化：子类的init方法中需要调用initTower和addTerrain
+	设置射击频率：子类需要在 init 方法中使用 schedule(schedule_selector(BaseMageTower::shoot), interval) 来设定调用基类 shoot 方法的频率，从而控制塔的攻击速度。
+	

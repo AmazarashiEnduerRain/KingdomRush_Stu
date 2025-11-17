@@ -1,0 +1,22 @@
+1.核心属性
+    视觉组件: 包含多个精灵指针，分别代表炮塔的不同部分，用于组合外观和播放复杂动画：
+        towerBase: 炮塔基座。
+        leftShooter, rightShooter: 左右两个操作炮塔的炮手。
+        barrel: 炮筒。
+        smoke: 开火烟雾效果。
+        c4: 炮弹箱或装填物。
+    状态控制：isReady，用于控制射击循环
+2.已实现的核心功能
+    多部件外观初始化：initTower:根据传入的等级，动态构建并组合炮塔的多个精灵部件，构建复杂的多层外观
+    专属地形：addTerrain
+    地面目标索敌：checkNearestMonster：重写了基类方法，只能攻击地面单位
+    射击与装填循环(shoot, fire, fireAnimation, filledAnimation):
+            shoot: 作为攻击逻辑入口，检查 isReady 状态和目标，触发 fireAnimation 和 fire。
+            fireAnimation: 播放炮塔开火时的多部件联动动画（炮手动作、炮筒后座、烟雾）。
+            fire: 创建炮弹 (Bomb)，使用贝塞尔曲线 (ccBezierConfig, BezierTo) 设置抛物线弹道，并安排延迟调用 filledAnimation。
+            filledAnimation: 播放炮手装填动画，并在动画结束（或通过回调）后将 isReady 设回 true，完成射击循环。
+    炮弹创建 (ArtilleryTowerBullet): 基类默认提供创建 Bomb 类型炮弹的功能，炮弹的属性（如威力）基于炮塔等级。
+3.需要子类实现的功能
+    调用初始化: 在子类的 init 方法中，需要调用 initTower(level) 来构建塔的外观，并调用 addTerrain() 添加地基。
+    设置射击频率: 子类需要在 init 方法中使用 schedule(schedule_selector(BaseArtilleryTower::shoot), interval) 来设定调用基类 shoot 方法的频率，从而控制塔的攻击速度（冷却时间）。
+    ArtilleryTowerBullet: (可选重写) 虽然基类提供了默认创建 Bomb 的实现，但如果子类需要发射特殊类型的炮弹（例如带有特殊效果的炮弹），可以重写此方法。

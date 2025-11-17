@@ -1,0 +1,17 @@
+1.核心属性
+    继承了BaseTower所有属性，并增加了专属成员:
+        视觉组件：towerBase:指向塔身主体部分的精灵；door:指向兵营门的精灵
+        核心容器：Soldiers,存储和管理该兵营当前拥有的所有士兵对象指针
+2.已实现的核心功能
+    initTower:士兵生成与初始化
+    cureSoldiers:士兵自动治疗与自动复活
+    setRallyPoint:集结点控制
+    update1\2、updateTower: 多路径升级逻辑
+    sellTower:特殊出售逻辑（在移除塔之前，确保正确停止所有管理士兵的动作，解除交战状态然后再执行移除流程）
+    showUpdateMenu:动态升级菜单（根据兵营当前levl，动态创建并显示不同类型的升级菜单界面，并根据游戏进度控制升级选项是否可用）
+    buildingAnimation、buildingSmokeAnimation:实现兵营从建造开始到最终完成的视觉过渡效果
+3.需要子类实现/注意的功能
+    基础实现完整性: BaseBarracksTower本身已经实现了从Level 1到Level 3的基础兵营及其到Level 4/5的分支升级逻辑 (Assassin/Templar)。
+                因此，通常不需要创建新的子类来表示这些具体的兵营等级或类型。直接使用 BaseBarracksTower::create() 创建实例即可，升级逻辑由内部处理。
+    调用初始化: 任何需要手动创建 BaseBarracksTower 的地方，应调用其 create() 方法（内部会调用 init()）。init() 方法负责启动建造动画，
+                建造动画结束后会自动调用initTower完成最终初始化并生成士兵。
