@@ -336,7 +336,7 @@ void ChooseDifficulty::starMenuCallback3(Ref *pSpender) {
         toggleItem2->runAction(MoveBy::create(0.1f, Point(0, -20)));
     if (toggleItem1->getSelectedIndex() == 0)
         toggleItem1->runAction(MoveBy::create(0.1f, Point(0, -20)));
-    
+
     toggleItem3->setSelectedIndex(0);
     toggleItem3->setEnabled(false);
     toggleItem1->setSelectedIndex(1);
