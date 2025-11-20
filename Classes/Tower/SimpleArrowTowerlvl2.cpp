@@ -15,10 +15,11 @@ bool SimpleArrowTowerlvl2::init(){
     addTerrain();
     initTower(2);
     setListener();
+    setForce(9);
     setScope(200.0f);
     setUpdateMoney(150);
     setBuildMoney(170);
-    setNextScope(220.0f);
+    setNextScope(240.0f);
     isUpdateMenuShown = false;
     schedule(schedule_selector(SimpleArrowTowerlvl2::shoot), 1.0f);
     SoundManager::playArcher2Ready();
@@ -48,7 +49,7 @@ void SimpleArrowTowerlvl2::showUpdateMenu(){
 Bullet* SimpleArrowTowerlvl2::ArrowTowerBullet(){
     auto bullet = Arrow::create();
     bullet->setRotation(90.0f);
-    bullet->setMaxForce(12);
+    bullet->setMaxForce(9);
     this->getParent()->addChild(bullet);
     return bullet;
 }

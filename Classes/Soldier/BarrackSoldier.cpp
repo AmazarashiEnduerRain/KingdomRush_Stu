@@ -64,8 +64,8 @@ void BarrackSoldier::update(float dt){
 
 void BarrackSoldier::updateSoldier(int level){
 	setLevel(level);
-	setForce(4 * level);
-	setMaxHp(40 * level);
+	setForce(2.5 * level);
+	setMaxHp(50 * level);
 	stopSoldierAnimation();
 	//升级后补满血量
 	this->setCurrHp(this -> getMaxHp());

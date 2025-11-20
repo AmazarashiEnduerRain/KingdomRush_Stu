@@ -11,7 +11,7 @@ bool EarthquakeTower::init(){
 
 	setTowerType(EARTHQUAKE);
 	addTerrain();
-	setScope(220.0f);
+	setScope(280.0f);
 	setBuildMoney(550);
 
 	towerBase = Sprite::createWithSpriteFrameName("EarthquakeTower_Base.png");
@@ -58,7 +58,7 @@ void EarthquakeTower::shoot(float dt){
 			operation->runAction(Sequence::create(
 				Animate::create(AnimationCache::getInstance()->getAnimation("EarthquakeTower_operation_down")),
 				CallFuncN::create(CC_CALLBACK_0(EarthquakeSmoke::shoot,hitSmoke)),
-				CallFuncN::create(CC_CALLBACK_0(EarthquakeTower::attackMonsters,this,60)),
+				CallFuncN::create(CC_CALLBACK_0(EarthquakeTower::attackMonsters,this,50)),
 				Animate::create(AnimationCache::getInstance()->getAnimation("EarthquakeTower_operation_up")),NULL));
 		}
 		else if(attackCount == 3){

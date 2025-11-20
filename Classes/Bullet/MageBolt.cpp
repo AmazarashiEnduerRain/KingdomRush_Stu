@@ -27,7 +27,7 @@ void MageBolt::removeBullet(){
     auto& monsterVector = instance->monsterVector;
 
     for (int j = 0; j < monsterVector.size(); j++){
-        auto monster = monsterVector.at(j);
+        auto& monster = monsterVector.at(j);
         auto monsterRect = monster->baseSprite->getBoundingBox();
         if (monster!=NULL && monsterRect.intersectsRect(bulletRect) && monster->getAttackByTower()){
             auto currHp = monster->getCurrHp();

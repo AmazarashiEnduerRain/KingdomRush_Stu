@@ -19,7 +19,7 @@ bool Bomb::initWithType(int type){
     switch (type){
         case(1):{
             sprite = Sprite::createWithSpriteFrameName("bombs_0001.png");
-            setMaxForce(20);
+            setMaxForce(10);
         }
             break;
         case(2):{
@@ -29,12 +29,12 @@ bool Bomb::initWithType(int type){
             break;
         case(3):{
             sprite = Sprite::createWithSpriteFrameName("bombs_0003.png");
-            setMaxForce(40);
+            setMaxForce(50);
         }
             break;
         case(4):{
             sprite = Sprite::createWithSpriteFrameName("bombs_0006.png");
-            setMaxForce(30);
+            setMaxForce(40);
         }
             break;
     }
@@ -51,7 +51,6 @@ void Bomb::removeBullet(){
     auto instance = GameManager::getInstance();
 
     auto bombPostion = this->getPosition() + this->getParent()->getPosition();
-
     auto& monsterVector = instance->monsterVector;
 
     for (int j = 0; j < monsterVector.size(); j++)

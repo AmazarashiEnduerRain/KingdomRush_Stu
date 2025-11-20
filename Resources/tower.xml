@@ -11,9 +11,9 @@
 			<key>AttackSpeed</key>
 			<string>一般</string>
 			<key>AttackValue</key>
-			<string>6</string>
+			<string>5</string>
 			<key>AttackRange</key>
-			<string>9</string>
+			<string>160</string>
 			
 			<key>Note</key>
 			<string>初级箭塔可以在远距离射杀别人</string>
@@ -28,12 +28,12 @@
 			<key>AttackSpeed</key>
 			<string>无</string>
 			<key>AttackValue</key>
-			<string>6</string>
+			<string>2.5</string>
 			<key>AttackRange</key>
-			<string>9</string>
+			<string>近战</string>
 			
 			<key>Note</key>
-			<string>训练民命，可阻止和对抗敌人</string>
+			<string>训练民兵，可阻止和对抗敌人</string>
 		</dict>
 		
 		<dict>
@@ -45,9 +45,9 @@
 			<key>AttackSpeed</key>
 			<string>慢</string>
 			<key>AttackValue</key>
-			<string>6</string>
+			<string>13</string>
 			<key>AttackRange</key>
-			<string>9</string>
+			<string>160</string>
 			
 			<key>Note</key>
 			<string>魔法攻击，无视敌人护甲</string>
@@ -62,9 +62,9 @@
 			<key>AttackSpeed</key>
 			<string>非常慢</string>
 			<key>AttackValue</key>
-			<string>6</string>
+			<string>10</string>
 			<key>AttackRange</key>
-			<string>9</string>
+			<string>160</string>
 			
 			<key>Note</key>
 			<string>丢炮弹造成大面积伤害</string>
@@ -77,11 +77,11 @@
 			<string>中级箭塔</string>
 			
 			<key>AttackSpeed</key>
-			<string>5</string>
+			<string>较快</string>
 			<key>AttackValue</key>
-			<string>6</string>
-			<key>AttackRange</key>
 			<string>9</string>
+			<key>AttackRange</key>
+			<string>200</string>
 			
 			<key>Note</key>
 			<string>中级箭塔使用长弓，范围更大</string>
@@ -94,11 +94,11 @@
 			<string>步兵</string>
 			
 			<key>AttackSpeed</key>
-			<string>6</string>
+			<string>无</string>
 			<key>AttackValue</key>
-			<string>6</string>
+			<string>5</string>
 			<key>AttackRange</key>
-			<string>9</string>
+			<string>近战</string>
 			
 			<key>Note</key>
 			<string>比民兵更好的装备</string>
@@ -111,11 +111,11 @@
 			<string>中级魔法塔</string>
 			
 			<key>AttackSpeed</key>
-			<string>5</string>
+			<string>一般</string>
 			<key>AttackValue</key>
-			<string>6</string>
+			<string>30</string>
 			<key>AttackRange</key>
-			<string>9</string>
+			<string>180</string>
 			
 			<key>Note</key>
 			<string>魔法攻击，能撕碎敌人</string>
@@ -128,11 +128,11 @@
 			<string>火炮</string>
 			
 			<key>AttackSpeed</key>
-			<string>6</string>
+			<string>非常慢</string>
 			<key>AttackValue</key>
-			<string>6</string>
+			<string>30</string>
 			<key>AttackRange</key>
-			<string>9</string>
+			<string>200</string>
 			
 			<key>Note</key>
 			<string>增强弹药，攻击范围更大</string>
@@ -145,11 +145,11 @@
 			<string>高级箭塔</string>
 			
 			<key>AttackSpeed</key>
-			<string>5</string>
+			<string>快</string>
 			<key>AttackValue</key>
-			<string>6</string>
+			<string>13</string>
 			<key>AttackRange</key>
-			<string>9</string>
+			<string>240</string>
 			
 			<key>Note</key>
 			<string>达到高级后，他们的攻击范围和伤害都会提高</string>
@@ -162,11 +162,11 @@
 			<string>骑士</string>
 			
 			<key>AttackSpeed</key>
-			<string>6</string>
+			<string>无</string>
 			<key>AttackValue</key>
-			<string>16</string>
+			<string>7.5</string>
 			<key>AttackRange</key>
-			<string>9</string>
+			<string>近战</string>
 			
 			<key>Note</key>
 			<string>他们是专业士兵，装备有重型装甲</string>
@@ -179,11 +179,11 @@
 			<string>高级魔法塔</string>
 			
 			<key>AttackSpeed</key>
-			<string>6</string>
+			<string>较快</string>
 			<key>AttackValue</key>
-			<string>16</string>
+			<string>55</string>
 			<key>AttackRange</key>
-			<string>9</string>
+			<string>230</string>
 			
 			<key>Note</key>
 			<string>更高的攻击，可以延缓敌人进攻</string>
@@ -196,11 +196,11 @@
 			<string>榴弹炮</string>
 			
 			<key>AttackSpeed</key>
-			<string>6</string>
+			<string>非常慢</string>
 			<key>AttackValue</key>
-			<string>16</string>
+			<string>50</string>
 			<key>AttackRange</key>
-			<string>9</string>
+			<string>240</string>
 			
 			<key>Note</key>
 			<string>炮弹越来越大，敌人无处可逃！</string>
@@ -210,36 +210,34 @@
 			<key>id</key>
 			<string>12</string>
 			<key>TowerName</key>
-			<string>机器人装甲车</string>
+			<string>弩兵堡垒</string>
 			
 			<key>AttackSpeed</key>
-			<string>6</string>
+			<string>非常快</string>
 			<key>AttackValue</key>
-			<string>16</string>
+			<string>20</string>
 			<key>AttackRange</key>
-			<string>9</string>
+			<string>300</string>
 			
 			<key>Note</key>
-			<string>全屏幕跟踪导弹，对近距离敌人释放炮弹
-敌人数量增加是释放shit减速敌人</string>
+			<string>严守戒律的训练让这些手持弓弩的复仇女神成为了这项技艺的大师</string>
 		</dict>
 		
 		<dict>
 			<key>id</key>
 			<string>13</string>
 			<key>TowerName</key>
-			<string>盗贼基地</string>
+			<string>刺客工会</string>
 			
 			<key>AttackSpeed</key>
 			<string>无</string>
 			<key>AttackValue</key>
-			<string>无</string>
+			<string>12</string>
 			<key>AttackRange</key>
-			<string>无</string>
+			<string>近战</string>
 			
 			<key>Note</key>
-			<string>召唤盗贼
-攻击敌人，盗取金钱，闪避敌人攻击</string>
+			<string>训练敏捷且致命的刺客，伏击并劫掠敌人</string>
 		</dict>
 		
 		<dict>
@@ -249,29 +247,28 @@
 			<string>死灵法师塔</string>
 			
 			<key>AttackSpeed</key>
-			<string>6</string>
+			<string>较快</string>
 			<key>AttackValue</key>
-			<string>60</string>
+			<string>55</string>
 			<key>AttackRange</key>
-			<string>非常大</string>
+			<string>250</string>
 			
 			<key>Note</key>
-			<string>召唤死亡骑士
-死在死灵法师手下的敌人都会变成骷髅兵！</string>
+			<string>黑暗术士能够利用死去敌人的尸体召唤亡灵手下</string>
 		</dict>
 		
 		<dict>
 			<key>id</key>
 			<string>15</string>
 			<key>TowerName</key>
-			<string>巫师塔</string>
+			<string>自动钻地武器平台</string>
 			
 			<key>AttackSpeed</key>
-			<string>慢</string>
+			<string>非常慢</string>
 			<key>AttackValue</key>
 			<string>60</string>
 			<key>AttackRange</key>
-			<string>非常大</string>
+			<string>280</string>
 			
 			<key>Note</key>
 			<string>充能3个能量球攻击敌人
@@ -282,68 +279,68 @@
 			<key>id</key>
 			<string>16</string>
 			<key>TowerName</key>
-			<string>地震塔</string>
+			<string>部落投斧手</string>
 			
 			<key>AttackSpeed</key>
-			<string>慢</string>
+			<string>快</string>
 			<key>AttackValue</key>
-			<string>100</string>
+			<string>24</string>
 			<key>AttackRange</key>
-			<string>非常大</string>
+			<string>280</string>
 			
 			<key>Note</key>
-			<string>挖掘技术顶峰，用地震伤害并且减速周围敌人</string>
+			<string>这些野人隐藏在一种超自然的神秘力量之下，但他们的斧子却展现出了致命的精准。</string>
 		</dict>
 		
 		<dict>
 			<key>id</key>
 			<string>17</string>
 			<key>TowerName</key>
-			<string>高级兵营塔</string>
+			<string>圣殿骑士团</string>
 			
 			<key>AttackSpeed</key>
-			<string>6</string>
+			<string>无</string>
 			<key>AttackValue</key>
-			<string>16</string>
+			<string>20</string>
 			<key>AttackRange</key>
-			<string>9</string>
+			<string>近战</string>
 			
 			<key>Note</key>
-			<string>注：此货是高级塔</string>
+			<string>作为有复原能力的老练战士，圣殿骑士很难不让人记住！</string>
 		</dict>
 		
 		<dict>
 			<key>id</key>
 			<string>18</string>
 			<key>TowerName</key>
-			<string>高级炮塔</string>
+			<string>大法师塔</string>
 			
 			<key>AttackSpeed</key>
-			<string>6</string>
+			<string>一般</string>
 			<key>AttackValue</key>
-			<string>16</string>
+			<string>90</string>
 			<key>AttackRange</key>
-			<string>9</string>
+			<string>270</string>
 			
 			<key>Note</key>
-			<string>注：此货是高级塔</string>
+			<string>专注于战斗的巫师们能为自动追踪的飞弹注入致命的魔法。</string>
 		</dict>
 		
 		<dict>
 			<key>id</key>
 			<string>19</string>
 			<key>TowerName</key>
-			<string>高级兵营塔</string>
+			<string>T-200</string>
 			
 			<key>AttackSpeed</key>
-			<string>6</string>
+			<string>较快</string>
 			<key>AttackValue</key>
-			<string>16</string>
+			<string>40</string>
 			<key>AttackRange</key>
-			<string>9</string>
+			<string>非常大</string>
 			
 			<key>Note</key>
-			<string>注：此货是高级塔</string>
+			<string>一台势不可挡的巨型可控移动大炮机甲！也被称为“大男孩”。</string>
 		</dict>
 
 		<dict>

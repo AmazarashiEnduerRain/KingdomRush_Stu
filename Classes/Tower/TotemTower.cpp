@@ -15,7 +15,7 @@ bool TotemTower::init(){
 
 	addTerrain();
 	setTowerType(TOTEMTOWER);
-	setScope(200.0f);
+	setScope(280.0f);
 	setBuildMoney(550);
 	towerBase = Sprite::createWithSpriteFrameName("TotemTower.png");
 

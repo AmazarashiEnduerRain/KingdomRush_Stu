@@ -13,7 +13,7 @@ bool CossbowHunterTower::init(){
 	setTowerType(COSSBOW);
 	addTerrain();
 	setBuildMoney(550);
-	setScope(200.0f);
+	setScope(300.0f);
 	towerBase = Sprite::createWithSpriteFrameName("CossbowHunter_tower.png");
 
 	shooter_1 = Sprite::createWithSpriteFrameName("CossbowHunter_shooter_0001.png");
@@ -54,7 +54,7 @@ void CossbowHunterTower::showUpdateMenu(){
 Bullet* CossbowHunterTower::ArrowTowerBullet(){
 	auto bullet = Arrow::create();
 	bullet->setRotation(90.0f);
-	bullet->setMaxForce(24);
+	bullet->setMaxForce(20);
 	this->getParent()->addChild(bullet);
     return bullet;
 }
@@ -70,8 +70,8 @@ void CossbowHunterTower::shoot(float dt){
 
 			Point shootVector = nearestMonster->baseSprite->getPosition() - this->getParent()->getPosition();
 
-			auto position=currBullet->getPosition()-shootVector;
-			auto rotation=atan2(position.y,position.x);
+			auto position = currBullet->getPosition()-shootVector;
+			auto rotation = atan2(position.y,position.x);
 			float angleDegrees = CC_RADIANS_TO_DEGREES(rotation);
 			currBullet->setRotation(180.0f - angleDegrees);
 

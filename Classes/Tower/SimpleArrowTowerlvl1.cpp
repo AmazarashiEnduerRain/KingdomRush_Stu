@@ -16,7 +16,7 @@ bool SimpleArrowTowerlvl1::init(){
 	addTerrain();
 	buildingAnimation();
 
-	setForce(8);
+	setForce(5);
 	setScope(160.0f);
 	setUpdateMoney(100);
 	setBuildMoney(70);

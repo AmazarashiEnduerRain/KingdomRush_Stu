@@ -9,17 +9,17 @@
 #include "math.h"
 
 void BaseMageTower::initTower(int level){
-	if(level<4){
+	if(level < 4){
 		towerBase=Sprite::createWithSpriteFrameName(__String::createWithFormat("mage_lvl%d_0001.png",level)->getCString());
 		shooter=Sprite::createWithSpriteFrameName(__String::createWithFormat("mage_shooter_0001.png")->getCString());
 		shooter->setPosition(Point(towerBase->getContentSize().width/2+3,towerBase->getContentSize().height/2+34));
 	}
-	if(4==level){
+	if(4 == level){
 		towerBase=Sprite::createWithSpriteFrameName("ArchMageTower.png" );
 		shooter=Sprite::createWithSpriteFrameName("ArchMageGuy_0001.png");
 		shooter->setPosition(Point(towerBase->getContentSize().width/2+3,towerBase->getContentSize().height/2+34));
 	}//特别处理奥术塔
-	if(5==level){
+	if(5 == level){
 		towerBase=Sprite::createWithSpriteFrameName("NecromancerTower.png");
 		shooter=Sprite::createWithSpriteFrameName("NecomancerMage_0001.png");
 		shooter->setPosition(Point(towerBase->getContentSize().width/2+3,towerBase->getContentSize().height/2+34));

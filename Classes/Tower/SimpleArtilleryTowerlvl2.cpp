@@ -15,7 +15,7 @@ bool SimpleArtilleryTowerlvl2::init(){
     addTerrain();
     initTower(2);
     setListener();
-    setScope(180.0f);
+    setScope(200.0f);
     setUpdateMoney(150);
     setBuildMoney(270);
     isUpdateMenuShown = false;

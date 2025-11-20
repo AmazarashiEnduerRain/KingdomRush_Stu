@@ -18,7 +18,7 @@ bool NecromancerTower::init(){
 	initTower(5);
 	setListener();
 
-	setScope(220.0f);
+	setScope(250.0f);
 	setBuildMoney(730);
 	isUpdateMenuShown = false;
 
@@ -44,7 +44,7 @@ bool NecromancerTower::init(){
 Bullet* NecromancerTower::MageTowerBullet(){
 	auto bullet = NecrBolt::create();
 	bullet->setPosition(Point(10,45));
-	bullet->setMaxForce(80);
+	bullet->setMaxForce(55);
 	this->getParent()->addChild(bullet);
     return bullet;
 }

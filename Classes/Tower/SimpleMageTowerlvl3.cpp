@@ -18,7 +18,7 @@ bool SimpleMageTowerlvl3::init(){
 	addTerrain();
 	initTower(3);
 	setListener();
-	setScope(250.0f);
+	setScope(230.0f);
 	setUpdateMoney(230);
 	setBuildMoney(500);
 	isUpdateMenuShown = false;
@@ -44,7 +44,7 @@ void SimpleMageTowerlvl3::showUpdateMenu(){
 Bullet* SimpleMageTowerlvl3::MageTowerBullet(){
 	auto bullet = MageBolt::create();
 	bullet->setPosition(Point(10,45));
-	bullet->setMaxForce(60);
+	bullet->setMaxForce(55);
 	this->getParent()->addChild(bullet);
     return bullet;
 }

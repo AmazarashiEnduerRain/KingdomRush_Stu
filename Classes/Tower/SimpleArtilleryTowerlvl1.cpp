@@ -26,7 +26,7 @@ void SimpleArtilleryTowerlvl1::buildingAnimation(){
 	auto building = Sprite::create();
 	auto constructing = Sprite::createWithSpriteFrameName("tower_constructing_0001.png");
 	auto hpBgSprite = Sprite::createWithSpriteFrameName("buildbar_bg.png");
-	hpBgSprite->setPosition(Point(constructing->getContentSize().width / 2, constructing->getContentSize().height /2 + 10));
+	hpBgSprite->setPosition(Point(constructing->getContentSize().width / 2, constructing->getContentSize().height / 2 + 10));
 	auto hpBar = ProgressTimer::create(Sprite::createWithSpriteFrameName("buildbar.png"));
 	hpBar->setType(ProgressTimer::Type::BAR);
 	hpBar->setMidpoint(Point(0, 0.5f));

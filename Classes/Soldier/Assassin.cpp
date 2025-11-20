@@ -10,7 +10,7 @@ Assassin* Assassin::createAssassin(Point point){
         assassin->setLocation(point);
 		assassin->setMaxHp(150);
 		assassin->setCurrHp(150);
-		assassin->setForce(14);
+		assassin->setForce(12);
 		assassin->setState(SoldierStateNone);
         assassin->autorelease();
 		assassin->attackCount = 0;

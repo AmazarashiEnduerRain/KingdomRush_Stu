@@ -80,7 +80,7 @@ void SimpleMageTowerlvl1::showUpdateMenu(){
 Bullet* SimpleMageTowerlvl1::MageTowerBullet(){
 	auto bullet = MageBolt::create();
 	bullet->setPosition(Point(10,45));
-	bullet->setMaxForce(15);
+	bullet->setMaxForce(13);
 	this->getParent()->addChild(bullet);
     return bullet;
 }

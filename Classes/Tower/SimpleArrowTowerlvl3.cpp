@@ -43,7 +43,7 @@ void SimpleArrowTowerlvl3::showUpdateMenu(){
 Bullet* SimpleArrowTowerlvl3::ArrowTowerBullet(){
 	auto bullet = Arrow::create();
 	bullet->setRotation(90.0f);
-	bullet->setMaxForce(16);
+	bullet->setMaxForce(13);
 	this->getParent()->addChild(bullet);
     return bullet;
 }

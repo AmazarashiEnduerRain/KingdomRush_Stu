@@ -34,7 +34,7 @@ bool ArchMageTower::init(){
 	initTower(4);
 	setListener();
 
-	setScope(220.0f);
+	setScope(270.0f);
 	setBuildMoney(730);
 	isUpdateMenuShown = false;
 	SoundManager::playArchmageReady();
@@ -66,7 +66,7 @@ void ArchMageTower::buildDelayBullet(){
 			SoundManager::playArchmagePrecharge();
 			shooter->runAction(Animate::create(AnimationCache::getInstance()->getAnimation("ArchMageGuy_up")));
 			DelayBullet[i] = ArchMageBolt::create();
-			DelayBullet[i]->setMaxForce(100);
+			DelayBullet[i]->setMaxForce(90);
 			DelayBullet[i]->setPosition(Point(-10,50));
 			this->getParent()->addChild(DelayBullet[i]);
 			MoveTo* move;
