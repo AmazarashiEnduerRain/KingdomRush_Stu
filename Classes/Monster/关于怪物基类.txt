@@ -1,0 +1,41 @@
+BaseMonster.h:
+1.MonsterState定义了怪物的核心行为状态
+stateWalkRight/Left/Up/Down用于控制怪物在地图上的移动动画方向
+stateAttackLeft/Right控制怪物的攻击行为和动画朝向
+stateDeath/Frozen/None定义了死亡、冰冻与无特殊状态，用于逻辑判断和动画切换
+MonsterName定义了所有怪物的名称
+
+2.怪物的核心属性：
+路径与移动:pointsVector存储怪物需要行进的路径点序列;runSpeed为怪物的移动速度
+战斗属性:maxHp:最大生命值;currHp:当前生命值;
+       force:攻击力，对玩家士兵造成伤害时使用;armor:护甲值，减免伤害
+状态与交互:attackBySoldier/attackByTower:标记此怪物是否能被士兵或防御塔作为攻击目标
+        isAttacking:标记怪物是否正在与士兵交战;
+        isSlowed:标记怪物是否处于减速状态;
+        state(MonsterState)：怪物当前具体状态
+奖励与界面:money:击杀怪物可获得的金钱奖励;
+        hpBar(ProgressTimer*):只读属性，指向怪物的血条精灵，用于更新血量显示
+
+3.怪物的核心行为
+getHurt():受伤时调用的接口，用于播放受伤特效(冒血)
+death():生命值耗尽时使用的接口，负责处理死亡动画、移除自身和给予玩家奖励的逻辑
+explosion():被爆炸这一特殊方式击杀时调用，有不同的死亡动画
+stopWalking()/restartWalking():暂停和恢复怪物移动
+frozen():进入冰冻状态的接口，用于停止怪物动作并显示冰冻特效
+
+4.触摸与信息显示
+setListener为怪物精灵绑定了触摸事件。点击怪物时，onTouchEnded触发，调用父级BaseMap上的player->showMonsterInfo方法
+
+5.冰冻状态实现
+frozen()被调用时，暂停怪物所有动作，添加播放结冰动画的精灵并启动8秒定时器。8秒后，调用refrozen，播放解冻动画，移除冰冻并调用restartWalking()让怪物恢复移动。冰冻期间再次调用，则重置定时器实现冰冻时间刷新
+
+6.减速状态实现
+slowRunSpeed被调用时，先检查怪物是否处于减速状态以免重复减速。随后降低runSpeed属性，启动持续dt时间的定时动作。事件结束后，速度恢复原状，isSlowed标志位设回false
+
+其余逻辑
+runNextPoint():驱动怪物移动
+update():引擎每帧自动调用，将逻辑状态与视觉表现同步
+~BaseMonster():析构函数为空函数，需要子类在各自析构函数中具体实现
+setListener():设置触摸监听
+setMonsterZorder():根据怪物当前位置的Y坐标设置其Z轴顺序
+
