@@ -46,7 +46,6 @@ private:
     Sprite* bigSprite;
 
     TowerDesc* towerDesc[50];
-
 };
 
 #endif //KINGDOMRUSH_STU_TOWERSCENE_H
