@@ -2,7 +2,7 @@
 // Created by 20619 on 2025/11/20.
 //
 #include "EncyclopediaScene.h"
-#include "EncyclopaediaTips.h"
+#include "EncyclopediaTips.h"
 #include "EnemyScene.h"
 #include "TowerScene.h"
 #include "Data/SoundManager.h"
@@ -58,7 +58,7 @@ bool EncyclopediaScene::init(){
 	sprite31->setScale(0.8f);
 	auto sprite32 = Sprite::createWithSpriteFrameName("encyclopedia_button_tips_0001.png");
 	sprite32->setScale(0.75f);
-	auto sprite3 =MenuItemSprite::create(
+	auto sprite3 = MenuItemSprite::create(
 		sprite31,
 		sprite32,
 		CC_CALLBACK_1(EncyclopediaScene::menuNextCallback1,this));
@@ -86,18 +86,18 @@ bool EncyclopediaScene::init(){
 
 void EncyclopediaScene::menuNextCallback1(Ref *pSender ){
 	SoundManager::playClickEffect();
-    Director::getInstance()->pushScene(EncyclopaediaTips::createScene());
-  }
+    Director::getInstance()->pushScene(EncyclopediaTips::createScene());
+}
 
 void EncyclopediaScene::menuNextCallback2(Ref *pSender ){
 	SoundManager::playClickEffect();
-	Director::getInstance()->pushScene(Tower::createScene());
- }
+	Director::getInstance()->pushScene(TowerScene::createScene());
+}
 
 void EncyclopediaScene::menuNextCallback3(Ref *pSender ){
 	SoundManager::playClickEffect();
-	Director::getInstance()->pushScene(Enemy::createScene());
- }
+	Director::getInstance()->pushScene(EnemyScene::createScene());
+}
 
 void EncyclopediaScene::menuNextCallback4(Ref *pSender ){
 	SoundManager::playClickEffect();

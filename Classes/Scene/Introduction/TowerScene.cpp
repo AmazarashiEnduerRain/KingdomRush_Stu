@@ -5,22 +5,22 @@
 #include "Data/SoundManager.h"
 USING_NS_CC;
 
-Scene* Tower::createScene(){
+Scene* TowerScene::createScene(){
     auto scene = Scene::create();
-    auto towerInfLayer = Tower::create();
+    auto towerInfLayer = TowerScene::create();
     scene->addChild(towerInfLayer);
     return scene;
 }
 
-bool Tower::init(){
+bool TowerScene::init(){
     if ( !Layer::init() ) return false;
 
 	visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin(); //手机可视屏幕的原点坐标
 
 	auto touchListener = EventListenerTouchOneByOne::create();
-	touchListener->onTouchBegan = CC_CALLBACK_2(Tower::onTouchBegan, this);
-	touchListener->onTouchEnded = CC_CALLBACK_2(Tower::onTouchEnded, this);
+	touchListener->onTouchBegan = CC_CALLBACK_2(TowerScene::onTouchBegan, this);
+	touchListener->onTouchEnded = CC_CALLBACK_2(TowerScene::onTouchEnded, this);
 
 	//背景平铺
 	for(int i = 0;i < 4;i++){
@@ -38,7 +38,6 @@ bool Tower::init(){
     auto bookLeft = Sprite::createWithSpriteFrameName("encyclopedia_book_pg.png");
     bookLeft->setPosition(Vec2(visibleSize.width / 4 + origin.x, visibleSize.height / 2 + origin.y));
 	bookLeft->setFlippedX(true);
-    bookLeft->setRotation(360);
     this->addChild(bookRight, 1);
 	this->addChild(bookLeft, 1);
 
@@ -46,7 +45,7 @@ bool Tower::init(){
 	auto closeBtnNormal = Sprite::createWithSpriteFrameName("encyclopedia_tow_creep_close_0001.png");
 	auto closeBtnPressed = Sprite::createWithSpriteFrameName("encyclopedia_tow_creep_close_0001.png");
 	auto closeBtnDisabled = Sprite::createWithSpriteFrameName("encyclopedia_tow_creep_close_0001.png");
-	spriteCloseButton = MenuItemSprite::create(closeBtnNormal,closeBtnPressed,closeBtnDisabled,CC_CALLBACK_1(Tower::closeScene,this));
+	spriteCloseButton = MenuItemSprite::create(closeBtnNormal,closeBtnPressed,closeBtnDisabled,CC_CALLBACK_1(TowerScene::closeScene,this));
     auto closeTowerScene = Menu::create(spriteCloseButton,NULL);
 	closeTowerScene->setPosition(Vec2(visibleSize.width - closeBtnNormal->getContentSize().width * 3 / 2  + origin.x,
 								visibleSize.height + origin.y - closeBtnNormal->getContentSize().height / 2));
@@ -62,15 +61,15 @@ bool Tower::init(){
 
 	//初始化缩略图标20个
 	for(int i = 0; i < 20; i ++){
-		auto temp1 = __String::createWithFormat("encyclopedia_tower_thumbs_01%02d.png",i+1)->getCString();
-		auto temp2 = __String::createWithFormat("encyclopedia_tower_01%02d.png",i+1)->getCString();
+		auto temp1 = __String::createWithFormat("encyclopedia_tower_thumbs_01%02d.png",i + 1)->getCString();
+		auto temp2 = __String::createWithFormat("encyclopedia_tower_01%02d.png",i + 1)->getCString();
 
 		towerDesc[i] = TowerDesc::createTowerDesc(temp1);
 		towerDesc[i]->setPosition(Point(visibleSize.width * (0.17 + (i % 4) * 0.085),
 										visibleSize.height * (0.75 - ((i / 4) % 5) * 0.15)));
 		towerDesc[i]->towerThumbFileName = temp1;
 		towerDesc[i]->towerDescFileName = temp2;
-		towerDesc[i]->num = i;
+		towerDesc[i]->id = i;
 
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener->clone(), towerDesc[i]);
 
@@ -112,7 +111,7 @@ bool Tower::init(){
     labelNotice->setPosition(Vec2(visibleSize.width * 0.7, visibleSize.height * 0.15));
 	labelNotice->setColor(Color3B(0,0,0));
 	labelNotice->setLineBreakWithoutSpace(true);
-	labelNotice->setDimensions(visibleSize.width/3,visibleSize.height * 0.15);
+	labelNotice->setDimensions(visibleSize.width / 3,visibleSize.height * 0.15);
     this->addChild(labelNotice, 2);
 
 	ValueVector txt_vec = FileUtils::getInstance()->getValueVectorFromFile("tower.xml");
@@ -160,7 +159,7 @@ bool Tower::init(){
 	return true;
 }
 
-bool Tower::onTouchBegan(Touch* touch, Event* event){
+bool TowerScene::onTouchBegan(Touch* touch, Event* event){
 	auto target = static_cast<TowerDesc*>(event->getCurrentTarget());
 	Point locationInNode = target->convertTouchToNodeSpace(touch);
 	Size size = target->towerDescPic->getContentSize();
@@ -185,9 +184,9 @@ bool Tower::onTouchBegan(Touch* touch, Event* event){
 	return false;
 }
 
-void Tower::onTouchEnded(Touch* touch, Event* event){return;}
+void TowerScene::onTouchEnded(Touch* touch, Event* event){return;}
 
-void Tower::closeScene(Ref* pSender){
+void TowerScene::closeScene(Ref* pSender){
 	SoundManager::playClickEffect();
 	Director::getInstance()->popScene();
 }

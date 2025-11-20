@@ -10,8 +10,7 @@
 #include "EncyclopediaScene.h"
 USING_NS_CC;
 
-class Tower : public cocos2d::Layer
-{
+class TowerScene: public cocos2d::Layer{
 public:
     static cocos2d::Scene* createScene();
     bool init() override;
@@ -23,27 +22,24 @@ public:
     CREATE_FUNC(Tower);
 private:
     int towerId;
+    Sprite* bigSprite;
     MenuItemSprite* spriteCloseButton;
 
     Label* labelName;
-    //3个属性
+
     Label* labelAttackSpeed;
     Label* labelAttackValue;
     Label* labelAttackRange;
-
-    Label* labelNotice;
-
-    //3个值
     Label* labelAttackSpeed1;
     Label* labelAttackValue1;
     Label* labelAttackRange1;
 
+    Label* labelNotice;
     Label* labelNotice1;
 
     Sprite* selectionFrame;//选中框
     MoveTo* moveFrame;//选中框移动的动画
     Size visibleSize;
-    Sprite* bigSprite;
 
     TowerDesc* towerDesc[50];
 };
